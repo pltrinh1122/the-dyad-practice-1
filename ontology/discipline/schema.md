@@ -5,7 +5,14 @@
 > (claim + refutation + ledger), homed **separately from any instance** so the *schema* falsifies
 > independently of the disciplines that conform to it. **Provisional — n=1** (seeking a second
 > discipline to map). Origin: `dyad-steward`. Record shape: `ontology/discipline.md` (body, this gate)
-> + `ontology/ledger/<contributor-hash>-<n>.md` (append-only; the ontology dogfoods its own structure).
+> + `ontology/discipline/ledger/<contributor-hash>-<n>.md` (append-only; the ontology dogfoods its own structure).
+>
+> **Universal record shape (invariant, Founding-gated 2026-05-31):** *every* Commons knowledge-unit
+> collection — `library/` (disciplines), `ontology/` (schemas), and any future one — uses the **identical
+> record shape**: `<collection>/<name>/` containing a **body** (`discipline.md` / `schema.md`) + an
+> append-only **`ledger/`** of `<contributor-hash>-<n>.md` entries. **No flat-file shortcut, even at n=1**
+> — a flat body + shared `ledger/` collides the moment a second record enters. Collections differ only
+> in *what they collect* (instances vs schemas), never in *shape*.
 
 ## Claim (the schema's own falsifiable +1)
 
