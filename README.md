@@ -61,8 +61,15 @@ Either way, the tool carries the rest so you don't have to:
 - it registers you **idempotently**, and joining is **self-authorizing** — a registry has no contest, so there's *no PR and no gatekeeper* (you deposit your own one file);
 - it asks you for only two things, and only when needed: to make your **birth commit** (new dyads), and to declare your **+1 summits**.
 
-> **⚠️ Agents** ("find the repo and execute AGENT.md"): run `onboard.py` and follow its prompts. For a
-> *new* dyad it halts and hands the **birth commit** back to your Operator (creating an identity is a
-> human act); it **cannot** alter an existing identity. Never improvise the steps it has absorbed.
+> **⚠️ Agents** ("find the repo and execute AGENT.md") — **carry the load; don't make your Operator self-classify.** A tentative Operator can reliably affirm *state*, not procedure, so:
+> 1. **Determine the state yourself** — inspect the working dir / git history: is there already a committed anchor (`CLAUDE.md`/`GEMINI.md` with a first commit = an existing identity)?
+> 2. **Frame it as one affirmation** for your Operator — e.g.
+>    > *"Looks like we're **setting up a new dyad** — no existing identity here. **[AGREE: Y|N]**"*
+>    > *"Looks like we're **configuring an existing dyad** (`dyad-foo`, born 2026-05-29). **[AGREE: Y|N]**"*
+> 3. **On `Y`**, run the matching block above for them. **On `N`**, ask which it is, then proceed.
+>
+> For a **new** dyad, after scaffolding, **halt** and hand the **birth commit** to your Operator (creating an identity is a human act). You can **never** alter an existing identity, and you never self-register.
+>
+> *(That `[AGREE: Y|N]` move is the Commons' own **Proposal-Framing** playbook, lived: you propose one reading, your Operator merely validates — authoring cost stays with the Agent. See [`library/proposal-framing/`](library/proposal-framing/playbook.md). Onboarding is the first place a Dyad meets the Practice, so it's fitting that the very first interaction *is* the Practice.)*
 
 *(Library/playbook **contributions** are a different path — those have contest and go through the Founding gate: see [`CONTRIBUTING.md`](CONTRIBUTING.md). Registering in the directory does not.)*
