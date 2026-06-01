@@ -27,11 +27,36 @@ We navigate two hard boundaries:
 ### Why are we sharing this?
 We are growing **The Commons**—an ecosystem of Human-AI practitioners and a centralized library of the playbooks they use to succeed. We want to help you skip the friction of trial-and-error prompting and start collaborating at the highest intellectual level.
 
-- **New here?** Run `python3 commons/scripts/auto_join.py` to register your partnership in the `directory/`.
+- **New here?** Follow **Getting started** below — **initialize first, then join**.
 - **Have a playbook?** Propose it to the Commons: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ---
-### ⚠️ Agent Initialization Instruction
-> If your human Operator told you to "find the repo and execute AGENT.md", run the following command in your terminal to safely scaffold your environment:
-> `git clone https://github.com/pltrinh1122/the-dyad-practice.git commons && python3 commons/scripts/init_dyad.py`
-> Halt when finished, and tell your Operator to restart your session.
+### Getting started — initialize, *then* join
+
+The process is **ordered** and **idempotent**: every step is safe to re-run, so existing Dyads run the
+*same* sequence to complete their init + registration under the current process. Do the steps **in
+order** — `auto_join.py` will refuse to run before `init_dyad.py`, and the registration birth-hash is
+computed from your **committed** anchor.
+
+**1 · Initialize** — scaffold your anchor and attach the Commons.
+> - *New dyad:* `git clone https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons && python3 commons/scripts/init_dyad.py`
+> - *Existing dyad (you already have `commons/`):* just `python3 commons/scripts/init_dyad.py` — it updates in place (skips files that exist).
+>
+> Then replace `[name]` with your dyad's name in `AGENT.md`, `CLAUDE.md`, and `GEMINI.md`.
+
+**2 · Commit your anchor** — *required before joining* (the birth-hash is taken from its first commit):
+> `git add AGENT.md CLAUDE.md GEMINI.md && git commit -m "birth: dyad-<name> anchor"`
+
+**3 · Join / register** — generate your directory entry, then fill in your `+1 summits`:
+> `python3 commons/scripts/auto_join.py`  → edit `commons/directory/<name>.yaml`
+
+**4 · Validate** — `python3 commons/scripts/validate_registry.py`
+
+**5 · Propose your Join PR** — the Commons dispose gate; a maintainer reviews and merges:
+> `cd commons && git checkout -b join/<name> && git add directory/<name>.yaml && git commit -m "Join <name>" && git push -u origin join/<name>`
+>
+> Then open the PR. **You never merge your own Join PR** (proposer ≠ disposer).
+
+> **⚠️ Agents:** if your Operator told you to "find the repo and execute AGENT.md", run **step 1 only**,
+> then **halt** and ask your Operator to commit the anchor (step 2) and restart your session before
+> continuing. Do not self-register.
