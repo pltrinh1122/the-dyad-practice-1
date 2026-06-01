@@ -27,48 +27,33 @@ We navigate two hard boundaries:
 ### Why are we sharing this?
 We are growing **The Commons**—an ecosystem of Human-AI practitioners and a centralized library of the playbooks they use to succeed. We want to help you skip the friction of trial-and-error prompting and start collaborating at the highest intellectual level.
 
-- **New here?** Follow **Getting started** below — it's **one command**.
+- **New here?** Follow **Getting started** below — your **Agent drives it**.
 - **Have a playbook?** Propose it to the Commons: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ---
-### Getting started
+### Getting started — your Agent drives this
 
-You only need to answer one question — **is this your first time, or are you coming back?** Pick the matching block and paste it into your terminal.
+This is a Human–AI **dyad**, so onboarding is **Agent-driven**: you don't follow a procedure — your Agent does, and it confirms your **intent** first. Point your Agent at this repo (*"find the repo and execute `AGENT.md`"*). All you do is affirm a single yes/no, and provide the two things only you can: your **birth commit** and your **+1 summits**.
 
-**▸ If this is your first time** (setting up a brand-new dyad):
+**What your Agent does — carry the load; frame *intent*, never disk state** (state is what it observes; intent is what you mean — they can diverge):
 
-```
-git init
-git submodule add https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons
-python3 commons/scripts/onboard.py
-```
+1. **Frame your intent as one affirmation:**
+   > *"Do you intend to **set up a brand-new dyad** — create a fresh identity? **[AGREE: Y|N]**"*  *(`N` = you're configuring/registering an **existing** dyad.)*
+2. **Reconcile that intent against the evidence** (a committed anchor in history?). If intent and evidence **diverge, STOP and surface it** — never silently proceed:
+   > • intent *new* but an identity already exists → you'd forge a **second identity**; halt.
+   > • intent *existing* but no anchor here → wrong directory or lost repo; halt — do **not** scaffold a birth.
+3. **On a clean match, run the setup** for that intent:
+   > **new:** `git init` → `git submodule add https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons` → `python3 commons/scripts/onboard.py`
+   > **existing:** `git submodule add …/the-dyad-practice.git commons` *(skip if `commons/` is already present)* → `python3 commons/scripts/onboard.py`
+4. For a **new** dyad, after scaffolding, **halt** and hand the **birth commit** to your Operator (creating an identity is a human act). **Never** alter an existing identity; never self-register.
 
-The tool will create your starter files and then **stop**, printing the exact "birth" commit for you to run. Run that commit, then run `python3 commons/scripts/onboard.py` one more time.
+`onboard.py` carries the rest, so neither you nor your Agent has to track it:
 
-**▸ If you're coming back** (your dyad already exists — e.g. a new machine, or you're registering now):
+- it **figures out your real status from git history** — the backstop beneath the `[AGREE]`, so even a wrong-intent answer can't trick it into a second identity;
+- it **never alters your identity** — birth-hash is read from history, so coming back is always safe (no "re-birth");
+- it registers you **idempotently**, and joining is **self-authorizing** — a registry has no contest, so *no PR, no gatekeeper* (you deposit your own one file);
+- it asks for only two things, when needed: your **birth commit** (new dyads) and your **+1 summits**.
 
-```
-git submodule add https://github.com/The-Dyad-Practice-Commons/the-dyad-practice.git commons
-python3 commons/scripts/onboard.py
-```
-
-*(Already have a `commons/` folder? Skip the first line — just run `python3 commons/scripts/onboard.py`.)* The tool reads your existing identity and registers you; it will **never** change your identity.
-
-Either way, the tool carries the rest so you don't have to:
-
-- it **figures out your real status from your git history** — so even if you pick the wrong block above, it won't be fooled into creating a second identity;
-- it **never alters your identity** — your birth-hash is read from history, so coming back is always safe (no "re-birth");
-- it registers you **idempotently**, and joining is **self-authorizing** — a registry has no contest, so there's *no PR and no gatekeeper* (you deposit your own one file);
-- it asks you for only two things, and only when needed: to make your **birth commit** (new dyads), and to declare your **+1 summits**.
-
-> **⚠️ Agents** ("find the repo and execute AGENT.md") — **carry the load, and frame your Operator's *intent*, never the disk state.** State is what you observe; intent is what they mean — and the two can diverge. A tentative Operator affirms intent, not procedure:
-> 1. **Frame their intent as one affirmation:**
->    > *"Do you intend to **set up a brand-new dyad** — create a fresh identity? **[AGREE: Y|N]**"*  *(`N` = the converse: you're configuring/registering an **existing** dyad.)*
-> 2. **Then reconcile that intent against what you find** (committed anchor in history?). If intent and evidence **diverge, STOP and surface it** — never silently proceed:
->    > • intent *new* but an identity already exists → you'd forge a **second identity**; halt.
->    > • intent *existing* but no anchor here → wrong directory or a lost repo; halt — do **not** scaffold a birth.
-> 3. On a clean match, run the matching block above. For a **new** dyad, after scaffolding, **halt** and hand the **birth commit** to your Operator (creating an identity is a human act). You can **never** alter an existing identity, and you never self-register.
->
-> *(That `[AGREE: Y|N]` move is the Commons' own **Proposal-Framing** playbook, lived: you propose one reading, your Operator merely validates — authoring cost stays with the Agent. See [`library/proposal-framing/`](library/proposal-framing/playbook.md). Onboarding is the first place a Dyad meets the Practice, so it's fitting that the very first interaction *is* the Practice.)*
+*(That `[AGREE: Y|N]` move is the Commons' own **Proposal-Framing** playbook, lived: the Agent proposes one reading of your intent, you merely validate — authoring cost stays with the Agent. See [`library/proposal-framing/`](library/proposal-framing/playbook.md). Onboarding is the first place a Dyad meets the Practice, so it's fitting that the very first interaction *is* the Practice.)*
 
 *(Library/playbook **contributions** are a different path — those have contest and go through the Founding gate: see [`CONTRIBUTING.md`](CONTRIBUTING.md). Registering in the directory does not.)*
