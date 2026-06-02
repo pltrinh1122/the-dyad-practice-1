@@ -1,0 +1,8 @@
+name: Project Template
+birth_hash: "sha256:df647f9fab55e6a8c223ad1e13a0c670be96b97f381967cb4b7bcaf5be3231aa"
+locator: github.com/wootang888-git/dyad-Vader
+summits:
+  # Keep each summit QUOTED — '#' and ':' are YAML-significant and will
+  # silently corrupt unquoted text (issue refs, ratios, times cluster here).
+  - "Swing trading strategy backtesting — stress-tested 3 alpha signals against 10 years of SPY data"
+  - "Building a child math app for grades 4-5, using a Python solution to ingest content"
