@@ -31,6 +31,7 @@ We are growing **The Commons**—an ecosystem of Human-AI practitioners and a ce
 
 - **New here?** Follow **Getting started** below — your **Agent drives it**.
 - **Have a playbook?** Propose it to the Commons: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- **Want to stress-test a claim — or attack another dyad's?** That's how the `+1` is earned: take it to the cross-dyad **falsification channel** — [`falsification/`](falsification/README.md) *(provisional)*.
 
 ---
 ### Getting started
