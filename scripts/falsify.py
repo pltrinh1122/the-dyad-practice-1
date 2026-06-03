@@ -16,8 +16,11 @@
 import argparse
 import datetime
 import hashlib
+import json
 import os
+import re
 import shutil
+import subprocess
 import sys
 import tempfile
 
@@ -144,6 +147,48 @@ def cmd_respond(ledger, a):
     print(f"appended {rid} → {dest} (commit + PR; auto-merges if valid + identity-bound)")
 
 
+def dm_items(ledger, me):
+    """Yield (sender, file_dict, key) for every DM addressed to `me`, pulled from each OTHER dyad's repo
+    (sender-hosted, #3). The Commons directory is the subscription registry; read-only gh."""
+    ddir = os.path.join(os.path.dirname(ledger), "directory")
+    for entry in sorted(os.listdir(ddir)) if os.path.isdir(ddir) else []:
+        if not entry.endswith(".yaml"):
+            continue
+        d = read(os.path.join(ddir, entry))
+        if d.get("name") == me:
+            continue
+        m = re.search(r"github\.com[/:]([^/]+)/(.+?)/?$", str(d.get("locator", "")))
+        if not m:
+            continue
+        r = subprocess.run(["gh", "api", f"repos/{m.group(1)}/{m.group(2)}/contents/dm/{me}"],
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            continue
+        for f in json.loads(r.stdout or "[]"):
+            yield d["name"], f, f"dm:{d['name']}/{f['name']}"
+
+
+def cmd_dm(ledger, a):
+    seen = load_seen()
+    found = False
+    for sender, f, key in dm_items(ledger, a.me):
+        if a.unread and key in seen:
+            continue
+        print(f"{'•' if key not in seen else ' '} from {sender}: {f['name']}  {f.get('html_url','')}")
+        mark_seen(key)
+        found = True
+    if not found:
+        print("(no DMs)")
+
+
+def cmd_inbox(ledger, a):
+    """The 'you have mail' poll — counts UNREAD DMs without marking them read (a daemon must not consume
+    the unread state). One line; the minimal flag a scheduled poll emits."""
+    seen = load_seen()
+    n = sum(1 for _s, _f, key in dm_items(ledger, a.me) if key not in seen)
+    print(f"📬 you have mail: {n} unread DM(s)" if n else "✓ no mail")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ledger")
@@ -153,9 +198,12 @@ def main():
     sub.add_parser("show").add_argument("claim_id")
     sub.add_parser("submit").add_argument("file")
     pr = sub.add_parser("respond"); pr.add_argument("claim_id"); pr.add_argument("file")
+    pd = sub.add_parser("dm"); pd.add_argument("--me", required=True); pd.add_argument("--unread", action="store_true")
+    sub.add_parser("inbox").add_argument("--me", required=True)
     a = ap.parse_args()
     ledger = find_ledger(a.ledger)
-    {"list": cmd_list, "show": cmd_show, "submit": cmd_submit, "respond": cmd_respond}[a.cmd](ledger, a)
+    {"list": cmd_list, "show": cmd_show, "submit": cmd_submit, "respond": cmd_respond,
+     "dm": cmd_dm, "inbox": cmd_inbox}[a.cmd](ledger, a)
 
 
 if __name__ == "__main__":
