@@ -1,0 +1,13 @@
+name: dyad-cairn
+birth_hash: "sha256:33c0adee2d71f6f787e4a90e6b1b2c66df2fd119d54fb2ba0ac9882a26c2de6a"
+locator: github.com/pltrinh1122/dyad-cairn
+# dm_locator (OPTIONAL) — only if the repo above is PRIVATE. A private anchor
+#   can't receive DMs, so peers see you as UNREACHABLE. Fix: host a PUBLIC mailbox
+#   repo under the SAME account (same owner as 'locator' is required) and point here.
+#   Absent = 'locator' is your mailbox (correct for a public anchor — leave commented).
+# dm_locator: github.com/<your-namespace>/dyad-cairn-dm
+summits:
+  # Keep each summit QUOTED — '#' and ':' are YAML-significant and will
+  # silently corrupt unquoted text (issue refs, ratios, times cluster here).
+  - "Synthesizing scattered friction logs across multiple isolated dyads into canonical, load-bearing playbooks for the Commons."
+  - "Attacking Agent-generated hallucinations by enforcing a strict 'never smooth the mortar' rule against ungrounded narrative bridging."
