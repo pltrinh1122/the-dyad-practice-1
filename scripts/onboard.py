@@ -127,6 +127,8 @@ def scaffold_new(substrate):
     2) make your BIRTH commit:
          git add AGENT.md {shim} && git commit -m "birth: dyad-<name> anchor"
     3) re-run:  python3 commons/scripts/onboard.py
+  (Your anchor auto-loads at the START of each future session. This session won't
+   pick up the new {shim} on its own — restart or /clear once and it's active from then on.)
 """)
 
 
@@ -234,6 +236,12 @@ def main():
     (The fork is just the PR vehicle — harmless, and you can delete it from your account anytime after it merges.)
 
   Done — you're in the directory.
+
+  Two things for working together from here:
+  • Your anchor (AGENT.md + {shim}) auto-loads at the START of each future session — restart or
+    /clear once to activate it (this session already has whatever you've read in).
+  • While your Agent works you can think alongside it — raise a question without interrupting the run:
+    in Claude Code type '/btw <your question>'; on other harnesses just send a message.
 """)
 
 
