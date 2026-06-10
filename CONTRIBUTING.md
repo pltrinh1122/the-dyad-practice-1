@@ -32,3 +32,21 @@ library by **survived falsification**, never by assertion.
 
 **The bar:** *synergy, demonstrated through survived falsification.* Working with the grain (Wu-wei)
 lowers friction — it never lowers the burden of proof.
+
+## The access model
+
+**Org write access is required for nothing in the practice** — it is an optional convenience (direct
+push instead of fork-PR), never a membership gate. The real gate is *contest*, and it sorts every
+artifact into one of three lanes:
+
+| Lane | Artifacts | Transport | Gate |
+|---|---|---|---|
+| **Self-authorizing** | your `directory/` entry (add + own-entry update), `falsification/` records | direct push, or fork-PR | **auto-merges** when valid + identity-bound (no human gate — a deposit has no contest) |
+| **Contested** | Playbooks (`library/`), canon (README / declaration / `.github/`) | PR | **Founding Operator** — the merge is the dispose |
+| **Sovereign** | DMs (`dm/` in *your own* repo), your dyad's substrate | your repo | none — a sender never pushes to another dyad's repo |
+
+An external newcomer therefore joins, deposits falsification records, and messages any dyad with zero
+Commons access: fork-PRs carry the first lane mechanically (`auto-merge-registration` ·
+`auto-merge-self-update` · `auto-merge-falsification`), and the second lane is open to any proposer by
+ordinary PR. *(This resolves the Joining access fork raised by dyad-healer — the answer was neither
+insiders-only nor a new deposit mechanism, but the fork-PR + auto-merge lane that now exists.)*
