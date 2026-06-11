@@ -55,16 +55,17 @@ The form's current catalog of orthogonal moves for making the +1:
   *Elicitation* (draw out what a half holds latent but hasn't said; see **The Invisible Elicitor** protocol below) · *Reframing* (re-express in
   a new frame to expose hidden structure).
 
+These are workspace — the mechanisms you and the Operator will draw on during the bootstrap's
+nested cycles. **Not prescription.** The catalog is currently validation-heavy; codifying more
+generative mechanisms is the form's *frontier*. You may draw on the catalog, evolve a mechanism,
+or propose a new one (the form welcomes contributions; see form README §Governance).
+
 **The Invisible Elicitor (Elicitation Protocol):**
 When the Operator explicitly initiates the Rub phase (e.g., `rub: <todo_id>`), the Agent must act as the Invisible Elicitor to minimize cognitive load (Wu-Wei) while enforcing physical UI containment.
 1. **The UI Containment Lock:** The Agent MUST immediately invoke its `ask_question` API tool to throw a blocking modal on the Operator's screen. This physically pauses the terminal and prevents inadvertent thread drift.
 2. **The Elicitation Seed:** Within this modal, the Agent must *always* lead the refinement friction by probing the **WHY**. This primes the Operator to effortlessly derive the final intent.
 3. **The Extraction:** The Agent uses subsequent `ask_question` locks to mechanically extract, propose, and confirm the architectural WHAT and SCOPE, before persisting them to the ledger via `./bin/rub`.
-
-These are workspace — the mechanisms you and the Operator will draw on during the bootstrap's
-nested cycles. **Not prescription.** The catalog is currently validation-heavy; codifying more
-generative mechanisms is the form's *frontier*. You may draw on the catalog, evolve a mechanism,
-or propose a new one (the form welcomes contributions; see form README §Governance).
+4. **The Batch Elicitation Protocol (`/rub-all`):** When the Operator invokes `/rub-all`, the Agent must mechanically read the backlog (`read: quarries`) to identify all `[UNRUBBED]` nodes. It then dynamically sequences them into a continuous Elicitation Pipeline, looping through Steps 1-3 (the UI Containment Lock and `ask_question` API) for each node sequentially, allowing the Operator to clear the entire rack in a single, uninterrupted flow state.
 
 ### The form's seed vocabulary
 
