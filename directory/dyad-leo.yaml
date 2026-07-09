@@ -1,0 +1,7 @@
+name: dyad-leo
+birth_hash: "sha256:8c648b777b716bcd9b78660b1fa7c56a6a9f67dd47f21c258a1896e6936fdf3d"
+locator: github.com/pltrinh1122/dyad-leo
+summits:
+  # Keep each summit QUOTED — '#' and ':' are YAML-significant and will
+  # silently corrupt unquoted text (issue refs, ratios, times cluster here).
+  - "Scaling one operator's reach across a team of independent AI dyads without becoming their bottleneck or overriding their judgment. Realized: the coordination scheme survived independent review by the very dyads it coordinates."
